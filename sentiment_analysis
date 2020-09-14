@@ -1,0 +1,23 @@
+# importar biblioteca json
+import json
+
+# importar biblioteca tensorflow
+import tensorflow
+
+# abrir archivo json 
+with open("pabloalboran.txt") as t:
+
+# convertir el archivo json a diccionario python
+	data = json.load(t)
+
+
+
+#importar el paquete sentiment_analysis_spanish
+
+from sentiment_analysis_spanish import sentiment_analysis
+
+# meter los datos al modelo en concreto el que está en primera posición y que lea el texto
+sentiment = sentiment_analysis.SentimentAnalysisSpanish(data[0]["text"]["data"])
+
+# imprimir resultado
+print(sentiment.sentiment(f.read()))
